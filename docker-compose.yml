@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  # Splunk Enterprise Service
+  splunk:
+    image: ${SPLUNK_IMAGE:-splunk/splunk:latest}
+    container_name: splunk-service
+    environment:
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_PASSWORD=Amine12345
+      - SPLUNK_HEC_TOKEN=RedisToken12345
+    ports:
+      - "8000:8000"
+      - "8088:8088"
+  # Redis Splunk Forwarder Service
+  forward:
+    image: redis-splunk-forwarder:latest
+    container_name: forwarder-service
+    depends_on:
+      - splunk
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - MOVIE_INSERT_ON_STARTUP=true
+      - MOVIE_DATA_DIR=./
+    ports:
+      - "8585:8585"
+    stdin_open: true
+    tty: true
+networks:
+  default:
+    name: redis-splunk-network
