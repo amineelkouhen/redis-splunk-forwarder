@@ -6,7 +6,7 @@ services:
     container_name: splunk-service
     environment:
       - SPLUNK_START_ARGS=--accept-license
-      - SPLUNK_PASSWORD=Amine12345
+      - SPLUNK_PASSWORD=Admin12345
       - SPLUNK_HEC_TOKEN=RedisToken12345
     ports:
       - "8000:8000"
