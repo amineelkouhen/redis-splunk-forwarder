@@ -22,7 +22,7 @@ Clone the Repository:
 git clone https://github.com/amineelkouhen/redis-splunk-forwarder.git
 ```
 
-You can run the project in your local machine by installing [Redis Stack](https://redis.io/docs/stack/get-started/install/) then running `./gradlew bootRun`.
+You can run the project in your local machine by installing [Splunk Enterprise](https://docs.splunk.com/Documentation/Splunk/9.0.2/Installation/Chooseyourplatform) then running `./gradlew bootRun`.
 
 Or, 
 
