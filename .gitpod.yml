@@ -1,0 +1,14 @@
+tasks:
+  - name: setup
+    init: |
+      docker-compose build
+    command: |
+      docker-compose up
+
+ports:
+  - port: 8088
+    onOpen: open-browser
+    visibility: public
+  - port: 8585
+    onOpen: ignore
+    visibility: public
