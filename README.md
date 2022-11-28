@@ -22,10 +22,13 @@ Clone the Repository:
 git clone https://github.com/amineelkouhen/redis-splunk-forwarder.git
 ```
 
-There is a docker compose script which will bootstrap all the components required to make this demo work.
+You can run the project in your local machine by installing [Splunk Enterprise](https://docs.splunk.com/Documentation/Splunk/9.0.2/Installation/Chooseyourplatform) then running `./gradlew bootRun`.
 
-1. Build the project `./gradlew build`
-2. Run `docker-compose up` from the root dir
+Or, 
+
+By using docker-compose which will bootstrap all the components required to make this demo work.
+
+1. Run `docker-compose up` from the root dir
 2. The containers will start in the correct order
 3. On startup:
 - The Splunk Service will bootstrap `Splunk Enterprise`. After the container starts up successfully and enters the "healthy" state, you should be able to access SplunkWeb at [http://localhost:8000](http://localhost:8000) with admin:Admin12345.
